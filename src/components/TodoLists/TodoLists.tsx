@@ -9,6 +9,7 @@ const TodoLists: React.FC<TodoListsProps> = ({
 	deleteTask,
 	toggleComplete,
 }) => {
+	
 	const [newTaskId, setNewTaskId] = useState<string | number | null>(null)
 	const [tasksToRemove, setTasksToRemove] = useState<number[]>([])
 	const navigate = useNavigate()
@@ -21,8 +22,7 @@ const TodoLists: React.FC<TodoListsProps> = ({
 	}, [newTaskId])
 
 	const handleDelete = (taskId: number) => {
-		setTasksToRemove([...tasksToRemove, taskId])
-
+		setTasksToRemove([...tasksToRemove, taskId]) 
 		setTimeout(() => {
 			if (deleteTask) {
 				deleteTask(taskId)

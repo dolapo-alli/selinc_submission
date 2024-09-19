@@ -8,6 +8,7 @@ const Button: React.FC<ButtonProps> = ({
 	size = 'medium',
 	icon,
 }) => {
+	
 	const buttonClass = `btn btn-${color} btn-${size}`
 
 	return (

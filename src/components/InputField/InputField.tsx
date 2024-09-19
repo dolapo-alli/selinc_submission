@@ -13,6 +13,7 @@ export const InputField: React.FC<InputFieldProps> = ({
 	const [inputValue, setInputValue] = useState('')
 	const navigate = useNavigate()
 	const inputRef = useRef<HTMLInputElement>(null)
+
 	useEffect(() => {
 		if (isEditing && task) {
 			setInputValue(task.title)
@@ -29,10 +30,12 @@ export const InputField: React.FC<InputFieldProps> = ({
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
+
 		if (inputValue === '') {
 			window.alert('Please enter a new task')
 			return
 		}
+
 		if (inputValue === task?.title) {
 			const confirmed = window.confirm(
 				'You have not made any changes to your todo, this action will keep current todo and take you back to the home page.'
@@ -42,6 +45,7 @@ export const InputField: React.FC<InputFieldProps> = ({
 			}
 			return
 		}
+
 		if (inputValue) {
 			if (isEditing && task && updateTask) {
 				updateTask(task.id, inputValue)
@@ -71,7 +75,7 @@ export const InputField: React.FC<InputFieldProps> = ({
 				className='input-field'
 				ref={inputRef}
 			/>
-			
+
 			<Button
 				type='submit'
 				label={isEditing ? 'Save Changes' : 'Add Task'}

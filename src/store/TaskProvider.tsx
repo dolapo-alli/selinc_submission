@@ -1,4 +1,4 @@
-import { createContext, ReactNode,  useState } from 'react'
+import { createContext, ReactNode, useState } from 'react'
 import { Task, TaskContextType } from '../types/task'
 
 export const TaskContext = createContext<TaskContextType>({
@@ -12,7 +12,6 @@ export const TaskContext = createContext<TaskContextType>({
 interface TaskProviderProps {
 	children: ReactNode
 }
-
 
 export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
 	const [tasks, setTasks] = useState<Task[]>([])

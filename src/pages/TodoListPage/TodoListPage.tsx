@@ -6,7 +6,7 @@ const TodoList = () => {
 	const { tasks, addTask, deleteTask, toggleComplete } = useTasks() 
 	return (
 		<div>
-			<h1>Todo List</h1>
+			<h1>Todo List</h1> 
             <br />
 			<InputField
 				addTask={addTask}

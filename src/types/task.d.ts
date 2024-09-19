@@ -18,18 +18,19 @@ export interface TodoListsProps {
 	toggleComplete?: (id: number) => void
 }
 
-export interface InputFieldProps { 
+export interface InputFieldProps {
 	addTask?: (title: string) => void | undefined
 	isEditing: boolean
 	updateTask?: (id: number, title: string) => void
-    task?:Task
+	task?: Task
 }
 
 export interface ButtonProps {
-    label: string;
-    onClick: () => void;
-    color?: string;
-    size: string;
-    disabled?: boolean;
-    type: 'button' | 'submit' | 'reset';  
-  }
+	label: string
+	onClick: () => void
+	color?: string
+	size: string
+	disabled?: boolean
+	type: 'button' | 'submit' | 'reset'
+	icon?: React.ReactNode; 
+}

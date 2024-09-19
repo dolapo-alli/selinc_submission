@@ -1,11 +1,18 @@
 .input-form {
-    display: flex; 
-  }
-  .input-field {
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 10px;
-    flex: 1;
-    margin-right: 10px;
-  }
-  
+	display: flex;
+}
+.input-field {
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	padding: 10px;
+	flex: 1;
+	margin-right: 10px;
+	font-size: 16px;
+	transition: border-color 5s ease, box-shadow 0.3s ease-out;
+}
+
+.input-field:focus {
+	border-color: #4a90e2;
+	outline: none;
+	box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+}

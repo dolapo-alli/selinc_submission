@@ -6,6 +6,7 @@ const Button: React.FC<ButtonProps> = ({
 	onClick,
 	color = 'primary',
 	size = 'medium',
+	icon,
 }) => {
 	const buttonClass = `btn btn-${color} btn-${size}`
 
@@ -14,7 +15,8 @@ const Button: React.FC<ButtonProps> = ({
 			className={buttonClass}
 			onClick={onClick}
 		>
-			{label}
+			{icon && <span className='btn-icon'>{icon}</span>}
+			{label && <span className='btn-label'>{label}</span>}
 		</button>
 	)
 }

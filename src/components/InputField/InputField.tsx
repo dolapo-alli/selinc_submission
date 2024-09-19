@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../Buttons/Button'
 import './inputField.css'
@@ -12,7 +12,7 @@ export const InputField: React.FC<InputFieldProps> = ({
 }) => {
 	const [inputValue, setInputValue] = useState('')
 	const navigate = useNavigate()
-
+	const inputRef = useRef<HTMLInputElement>(null)
 	useEffect(() => {
 		if (isEditing && task) {
 			setInputValue(task.title)
@@ -20,6 +20,12 @@ export const InputField: React.FC<InputFieldProps> = ({
 			setInputValue('')
 		}
 	}, [task, isEditing])
+
+	useEffect(() => {
+		if (inputRef.current) {
+			inputRef.current.focus()
+		}
+	}, [isEditing])
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
@@ -49,7 +55,7 @@ export const InputField: React.FC<InputFieldProps> = ({
 	}
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setInputValue(e.target.value.trim())
+		setInputValue(e.target.value)
 	}
 
 	return (
@@ -63,13 +69,24 @@ export const InputField: React.FC<InputFieldProps> = ({
 				onChange={(e) => handleChange(e)}
 				placeholder={isEditing ? 'Edit task' : 'Enter new task'}
 				className='input-field'
+				ref={inputRef}
 			/>
+			
 			<Button
 				type='submit'
 				label={isEditing ? 'Save Changes' : 'Add Task'}
 				size='small'
 				onClick={() => {}}
 				disabled={inputValue === ''}
+				icon={
+					<>
+						<i
+							className='fa fa-plus'
+							aria-hidden='true'
+						></i>
+						<p>{isEditing ? 'Update' : 'Add'}</p>
+					</>
+				}
 			/>
 		</form>
 	)

@@ -24,7 +24,7 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
 	const addTask = (newTask: string) => {
 		const newTaskObject: Task = {
 			id: Date.now(),
-			title: newTask,
+			title: newTask.trim(),
 			completed: false,
 		}
 		setTasks((prevTasks) => sortTasks([...prevTasks, newTaskObject]))

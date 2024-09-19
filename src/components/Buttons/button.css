@@ -4,11 +4,10 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
     color: white;
 }
-
-/* Button colors */
+ 
 .btn-primary {
     background-color: #007bff;
 }
@@ -40,8 +39,7 @@
 .btn-edit:hover {
     background-color: #75778A;
 }
-
-/* Button sizes */
+ 
 .btn-small {
     padding: 5px 10px;
     font-size: 14px;
@@ -51,3 +49,26 @@
     padding: 10px 20px;
     font-size: 16px;
 }
+  
+.btn-icon {
+    display: none;  
+    padding: 5px;
+    font-size: 10px;
+  }
+  
+  .btn-label {
+    display: inline-block;
+  }
+   
+  @media (max-width: 768px) {
+    .btn-label {
+      display: none;  
+    }
+    
+    .btn-icon {
+      display: inline-block;  
+    }
+    .btn-icon > p{
+     font-size: 10px; 
+    }
+  }
